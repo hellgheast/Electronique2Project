@@ -1,0 +1,3 @@
+RA0 	- 	ADC 0
+RC5 	-	CCP1
+RD2		- 	CCP2
