@@ -2299,7 +2299,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f914.h: 7127: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;pic16f914.h: 7129: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;iDio.h: 13: void iDio_Config();
-"2 C:/Users/mohammed.bensalah/Documents/HE-ARC/2e/Electronique_1/Projet_Cardiogramme/Projet1-2.X/iDio.c
+"2 iDio.c
 [v _iDio_Config `(v ~T0 @X0 1 ef ]
 "3
 {

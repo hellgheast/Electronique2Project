@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"15 C:/Users/mohammed.bensalah/Documents/HE-ARC/2e/Electronique_1/Projet_Cardiogramme/Projet1-2.X/iCpu.h
+"15 iCpu.h
 [v _iCpu_Config `(v ~T0 @X0 0 ef ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
@@ -2350,7 +2350,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;def.h: 27: typedef unsigned long UInt32;
 [; ;def.h: 28: typedef signed long SInt32;
 [; ;iCpu.h: 15: void iCpu_Config(void);
-"17 C:/Users/mohammed.bensalah/Documents/HE-ARC/2e/Electronique_1/Projet_Cardiogramme/Projet1-2.X/main.c
+"17 main.c
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
 "18
 {
