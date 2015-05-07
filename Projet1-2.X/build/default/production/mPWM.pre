@@ -1,5 +1,5 @@
 
-# 1 "iPWM.c"
+# 1 "mPWM.c"
 
 # 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f914.h"
 extern volatile unsigned char INDF @ 0x000;
@@ -3107,38 +3107,13 @@ void iPWM_Config();
 
 void iPWM_SetDutyCycle(int ValCCP);
 
-# 4 "iPWM.c"
-void iPWM_Config()
-{
+# 14 "mPWM.h"
+void mPWM_SetRation(int Procent);
 
-PR2 = 0xFF;
+# 7 "mPWM.c"
+void mPWM_SetRation(int Procent){
 
-
-CCPR1L = 128;
-
-CCP1CONbits.CCP1X = 0;
-CCP1CONbits.CCP1Y = 0;
-
-
-TRISC5 = 0;
-
-
-T2CONbits.TOUTPS = 0;
-T2CONbits.TMR2ON = 1;
-T2CONbits.T2CKPS1 = 1;
-
-
-CCP1CONbits.CCP1M3 = 1;
-CCP1CONbits.CCP1M2 = 1;
-}
-
-
-
-
-void iPWM_SetDutyCycle(int ValCCP){
-
-CCPR1L = (ValCCP >> 2) & 0xFF;
-CCP1CONbits.CCP1M3 = ValCCP & 0x02;
-CCP1CONbits.CCP1M2 = ValCCP & 0x01;
+int ValCCP = (Procent*1024)/100;
+iPWM_SetDutyCycle(ValCCP);
 
 }
