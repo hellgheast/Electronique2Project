@@ -3112,12 +3112,23 @@ void iAd_Config()
 ANSELbits.AN0 = 1;
 
 
+ADCON0bits.CHS = 0b000;
 
+
+ADCON1bits.ADCS = 0b010;
+
+
+ADCON0bits.ADFM = 1;
+
+
+ADCON0bits.VCFG =0b00;
 
 }
 bool iAd_StartMesure()
 {
 
+ADCON0bits.ADON=1;
+return 1;
 }
 bool iAd_MesureComplete()
 {

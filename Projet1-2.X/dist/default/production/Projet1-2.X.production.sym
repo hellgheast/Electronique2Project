@@ -102,6 +102,8 @@ __Lcinit 7FD 0 CODE 0
 __Hspace_3 0 0 ABS 0
 __Lspace_3 0 0 ABS 0
 __size_of_main 0 0 ABS 0
+_ADCON0bits 1F 0 ABS 0
+_ADCON1bits 9F 0 ABS 0
 _OSCCONbits 8F 0 ABS 0
 __Hend_init 2 0 CODE 0
 __Lend_init 0 0 CODE 0
@@ -133,12 +135,12 @@ maintext FE4 FEB CODE FE4 0
 dist/default/production\Projet1-2.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f914.h
 7097 0 0 CODE 0
-C:\Users\MOHAMM~1.BEN\AppData\Local\Temp\sa0k.
-954 7FD 0 CODE 0
-957 7FD 0 CODE 0
-963 7FD 0 CODE 0
-964 7FD 0 CODE 0
-965 7FE 0 CODE 0
+C:\Users\MOHAMM~1.BEN\AppData\Local\Temp\s730.
+958 7FD 0 CODE 0
+961 7FD 0 CODE 0
+967 7FD 0 CODE 0
+968 7FD 0 CODE 0
+969 7FE 0 CODE 0
 C:/Users/mohammed.bensalah/Documents/HE-ARC/2e/Electronique_1/Projet_Cardiogramme/Projet1-2.X/main.c
 17 7F2 0 CODE 0
 19 7F2 0 CODE 0

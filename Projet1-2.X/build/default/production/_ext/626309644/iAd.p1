@@ -13,6 +13,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S75 . . . . ]
 "1906
 [v _ANSELbits `VS75 ~T0 @X0 0 e@145 ]
+"1165
+[s S45 :1 `uc 1 :1 `uc 1 :3 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S45 . ADON GO_nDONE CHS VCFG ADFM ]
+"1172
+[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S46 . . nDONE CHS0 CHS1 CHS2 VCFG0 VCFG1 ]
+"1181
+[s S47 :1 `uc 1 :1 `uc 1 ]
+[n S47 . . GO_DONE ]
+"1185
+[s S48 :1 `uc 1 :1 `uc 1 ]
+[n S48 . . GO ]
+"1164
+[u S44 `S45 1 `S46 1 `S47 1 `S48 1 ]
+[n S44 . . . . . ]
+"1190
+[v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
+"2810
+[s S116 :4 `uc 1 :3 `uc 1 ]
+[n S116 . . ADCS ]
+"2814
+[s S117 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S117 . . ADCS0 ADCS1 ADCS2 ]
+"2809
+[u S115 `S116 1 `S117 1 ]
+[n S115 . . . ]
+"2821
+[v _ADCON1bits `VS115 ~T0 @X0 0 e@159 ]
 [; ;pic16f914.h: 49: extern volatile unsigned char INDF @ 0x000;
 "51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f914.h
 [; ;pic16f914.h: 51: asm("INDF equ 00h");
@@ -2292,43 +2320,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;iAd.c: 6: ANSELbits.AN0 = 1;
 "6
 [e = . . _ANSELbits 2 0 -> -> 1 `i `uc ]
-[; ;iAd.c: 11: }
-"11
+[; ;iAd.c: 9: ADCON0bits.CHS = 0b000;
+"9
+[e = . . _ADCON0bits 0 2 -> -> 0 `i `uc ]
+[; ;iAd.c: 12: ADCON1bits.ADCS = 0b010;
+"12
+[e = . . _ADCON1bits 0 1 -> -> 2 `i `uc ]
+[; ;iAd.c: 15: ADCON0bits.ADFM = 1;
+"15
+[e = . . _ADCON0bits 0 4 -> -> 1 `i `uc ]
+[; ;iAd.c: 18: ADCON0bits.VCFG =0b00;
+"18
+[e = . . _ADCON0bits 0 3 -> -> 0 `i `uc ]
+[; ;iAd.c: 20: }
+"20
 [e :UE 209 ]
 }
-"12
+"21
 [v _iAd_StartMesure `(i ~T0 @X0 1 ef ]
-"13
+"22
 {
-[; ;iAd.c: 12: bool iAd_StartMesure()
-[; ;iAd.c: 13: {
+[; ;iAd.c: 21: bool iAd_StartMesure()
+[; ;iAd.c: 22: {
 [e :U _iAd_StartMesure ]
 [f ]
-[; ;iAd.c: 15: }
-"15
+[; ;iAd.c: 24: ADCON0bits.ADON=1;
+"24
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;iAd.c: 25: return 1;
+"25
+[e ) -> 1 `i ]
+[e $UE 210  ]
+[; ;iAd.c: 26: }
+"26
 [e :UE 210 ]
 }
-"16
+"27
 [v _iAd_MesureComplete `(i ~T0 @X0 1 ef ]
-"17
+"28
 {
-[; ;iAd.c: 16: bool iAd_MesureComplete()
-[; ;iAd.c: 17: {
+[; ;iAd.c: 27: bool iAd_MesureComplete()
+[; ;iAd.c: 28: {
 [e :U _iAd_MesureComplete ]
 [f ]
-[; ;iAd.c: 19: }
-"19
+[; ;iAd.c: 30: }
+"30
 [e :UE 211 ]
 }
-"20
+"31
 [v _iAd_GetResult `(uc ~T0 @X0 1 ef ]
-"21
+"32
 {
-[; ;iAd.c: 20: UChar iAd_GetResult()
-[; ;iAd.c: 21: {
+[; ;iAd.c: 31: UChar iAd_GetResult()
+[; ;iAd.c: 32: {
 [e :U _iAd_GetResult ]
 [f ]
-[; ;iAd.c: 23: }
-"23
+[; ;iAd.c: 34: }
+"34
 [e :UE 212 ]
 }
