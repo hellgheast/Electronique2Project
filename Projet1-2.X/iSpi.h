@@ -8,6 +8,7 @@
 #ifndef __ISPI__
 #define	__ISPI__
 
+#include <pic16f914.h>
 void iSpi_Config();
 
 #endif	/* ISPI_H */

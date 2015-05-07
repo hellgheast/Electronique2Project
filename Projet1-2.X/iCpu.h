@@ -10,8 +10,9 @@
 
 #include <pic16f914.h>
 
+
 /*COnfiguration du clock*/
-void iCpu_Config();
+void iCpu_Config(void);
 
 
 #endif	/* ICPU_H */

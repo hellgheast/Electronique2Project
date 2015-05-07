@@ -9,13 +9,14 @@
 #include <stdlib.h>
 #include <pic16f914.h>
 #include "def.h"
+#include "iCpu.h"
 
 /*
  * 
  */
 int main(int argc, char** argv)
 {
-
+    iCpu_Config();
   
 }
 
