@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.34 build -361300703 
-                                                                                               Thu Jun 04 10:28:40 2015
+                                                                                               Thu Jun 04 10:47:08 2015
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
      1                           	processor	16F914
@@ -820,7 +820,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    814 ;;
    815 ;; *************** function _main *****************
    816 ;; Defined at:
-   817 ;;		line 22 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/main.c"
+   817 ;;		line 19 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/main.c"
    818 ;; Parameters:    Size  Location     Type
    819 ;;  argc            2    4[COMMON] int 
    820 ;;  argv            2    6[COMMON] PTR PTR unsigned char 
@@ -856,7 +856,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    850                           ;psect for function _main
    851  07B9                     _main:	
    852                           
-   853                           ;main.c: 24: float vcc = 5;
+   853                           ;main.c: 21: float vcc = 5;
    854                           
    855                           ;incstack = 0
    856                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
@@ -869,7 +869,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    863  07BF  3040               	movlw	64
    864  07C0  00A2               	movwf	main@vcc+2
    865                           
-   866                           ;main.c: 25: float valUmoy = 4.8;
+   866                           ;main.c: 22: float valUmoy = 4.8;
    867  07C1  309A               	movlw	154
    868  07C2  00A3               	movwf	main@valUmoy
    869  07C3  3099               	movlw	153
@@ -877,19 +877,19 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    871  07C5  3040               	movlw	64
    872  07C6  00A5               	movwf	main@valUmoy+2
    873                           
-   874                           ;main.c: 26: int ValCCP = 204;
+   874                           ;main.c: 23: int ValCCP = 204;
    875  07C7  30CC               	movlw	204
    876  07C8  00A6               	movwf	main@ValCCP
    877  07C9  3000               	movlw	0
    878  07CA  00A7               	movwf	main@ValCCP+1
    879                           
-   880                           ;main.c: 28: iCpu_Config();
-   881  07CB  118A  279C  118A   	fcall	_iCpu_Config
+   880                           ;main.c: 25: iCpu_Config();
+   881  07CB  118A  279B  118A   	fcall	_iCpu_Config
    882                           
-   883                           ;main.c: 29: iPWM_Config();
-   884  07CE  118A  27A3  118A   	fcall	_iPWM_Config
+   883                           ;main.c: 26: iPWM_Config();
+   884  07CE  118A  27A2  118A   	fcall	_iPWM_Config
    885                           
-   886                           ;main.c: 33: iPWM_SetDutyCycle(512);
+   886                           ;main.c: 30: iPWM_SetDutyCycle(512);
    887  07D1  3000               	movlw	0
    888  07D2  00F0               	movwf	iPWM_SetDutyCycle@ValCCP
    889  07D3  3002               	movlw	2
@@ -902,7 +902,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    896  07D9                     __ptext1:	
    897 ;; *************** function _iPWM_SetDutyCycle *****************
    898 ;; Defined at:
-   899 ;;		line 38 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/iPWM.c"
+   899 ;;		line 44 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/iPWM.c"
    900 ;; Parameters:    Size  Location     Type
    901 ;;  ValCCP          2    0[COMMON] int 
    902 ;; Auto vars:     Size  Location     Type
@@ -934,7 +934,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    928                           ;psect for function _iPWM_SetDutyCycle
    929  07D9                     _iPWM_SetDutyCycle:	
    930                           
-   931                           ;iPWM.c: 41: CCPR1L = (ValCCP >> 2) & 0xFF;
+   931                           ;iPWM.c: 47: CCPR1L = (ValCCP >> 2) & 0xFF;
    932                           
    933                           ;incstack = 0
    934                           ; Regs used in _iPWM_SetDutyCycle: [wreg+status,2+status,0]
@@ -953,7 +953,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    947  07E5  1303               	bcf	3,6	;RP1=0, select bank0
    948  07E6  0095               	movwf	21	;volatile
    949                           
-   950                           ;iPWM.c: 43: CCP1CONbits.CCP1M3 = ValCCP & 0x02;
+   950                           ;iPWM.c: 49: CCP1CONbits.CCP1M3 = ValCCP & 0x02;
    951  07E7  0870               	movf	iPWM_SetDutyCycle@ValCCP,w
    952  07E8  3902               	andlw	2
    953  07E9  00F2               	movwf	??_iPWM_SetDutyCycle
@@ -966,7 +966,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    960  07F0  0672               	xorwf	??_iPWM_SetDutyCycle,w
    961  07F1  0097               	movwf	23	;volatile
    962                           
-   963                           ;iPWM.c: 44: CCP1CONbits.CCP1M2 = ValCCP & 0x01;
+   963                           ;iPWM.c: 50: CCP1CONbits.CCP1M2 = ValCCP & 0x01;
    964  07F2  0870               	movf	iPWM_SetDutyCycle@ValCCP,w
    965  07F3  3901               	andlw	1
    966  07F4  00F2               	movwf	??_iPWM_SetDutyCycle
@@ -981,10 +981,10 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
    975  07FD                     __end_of_iPWM_SetDutyCycle:	
    976                           
    977                           	psect	text2
-   978  07A3                     __ptext2:	
+   978  07A2                     __ptext2:	
    979 ;; *************** function _iPWM_Config *****************
    980 ;; Defined at:
-   981 ;;		line 4 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/iPWM.c"
+   981 ;;		line 6 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/iPWM.c"
    982 ;; Parameters:    Size  Location     Type
    983 ;;		None
    984 ;; Auto vars:     Size  Location     Type
@@ -1013,130 +1013,133 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
   1007                           
   1008                           
   1009                           ;psect for function _iPWM_Config
-  1010  07A3                     _iPWM_Config:	
+  1010  07A2                     _iPWM_Config:	
   1011                           
-  1012                           ;iPWM.c: 7: TRISC5 = 1;
+  1012                           ;iPWM.c: 10: PIE1bits.TMR2IE = 1;
   1013                           
   1014                           ;incstack = 0
   1015                           ; Regs used in _iPWM_Config: [wreg]
-  1016  07A3  1683               	bsf	3,5	;RP0=1, select bank1
-  1017  07A4  1303               	bcf	3,6	;RP1=0, select bank1
-  1018  07A5  1687               	bsf	7,5	;volatile
+  1016  07A2  1683               	bsf	3,5	;RP0=1, select bank1
+  1017  07A3  1303               	bcf	3,6	;RP1=0, select bank1
+  1018  07A4  148C               	bsf	12,1	;volatile
   1019                           
-  1020                           ;iPWM.c: 10: PR2 = 0x65;
-  1021  07A6  3065               	movlw	101
-  1022  07A7  0092               	movwf	18	;volatile
-  1023                           
-  1024                           ;iPWM.c: 13: CCP1CONbits.CCP1M3 = 1;
-  1025  07A8  1283               	bcf	3,5	;RP0=0, select bank0
-  1026  07A9  1303               	bcf	3,6	;RP1=0, select bank0
-  1027  07AA  1597               	bsf	23,3	;volatile
-  1028                           
-  1029                           ;iPWM.c: 14: CCP1CONbits.CCP1M2 = 1;
-  1030  07AB  1517               	bsf	23,2	;volatile
+  1020                           ;iPWM.c: 13: TRISC5 = 1;
+  1021  07A5  1687               	bsf	7,5	;volatile
+  1022                           
+  1023                           ;iPWM.c: 16: PR2 = 0x65;
+  1024  07A6  3065               	movlw	101
+  1025  07A7  0092               	movwf	18	;volatile
+  1026                           
+  1027                           ;iPWM.c: 19: CCP1CONbits.CCP1M3 = 1;
+  1028  07A8  1283               	bcf	3,5	;RP0=0, select bank0
+  1029  07A9  1303               	bcf	3,6	;RP1=0, select bank0
+  1030  07AA  1597               	bsf	23,3	;volatile
   1031                           
-  1032                           ;iPWM.c: 17: CCPR1L = 128;
-  1033  07AC  3080               	movlw	128
-  1034  07AD  0095               	movwf	21	;volatile
-  1035                           
-  1036                           ;iPWM.c: 18: CCP1CONbits.CCP1X = 0;
-  1037  07AE  1297               	bcf	23,5	;volatile
+  1032                           ;iPWM.c: 20: CCP1CONbits.CCP1M2 = 1;
+  1033  07AB  1517               	bsf	23,2	;volatile
+  1034                           
+  1035                           ;iPWM.c: 23: CCPR1L = 128;
+  1036  07AC  3080               	movlw	128
+  1037  07AD  0095               	movwf	21	;volatile
   1038                           
-  1039                           ;iPWM.c: 19: CCP1CONbits.CCP1Y = 0;
-  1040  07AF  1217               	bcf	23,4	;volatile
+  1039                           ;iPWM.c: 24: CCP1CONbits.CCP1X = 0;
+  1040  07AE  1297               	bcf	23,5	;volatile
   1041                           
-  1042                           ;iPWM.c: 22: PIR1bits.TMR2IF = 0;
-  1043  07B0  108C               	bcf	12,1	;volatile
+  1042                           ;iPWM.c: 25: CCP1CONbits.CCP1Y = 0;
+  1043  07AF  1217               	bcf	23,4	;volatile
   1044                           
-  1045                           ;iPWM.c: 24: T2CONbits.T2CKPS1 = 1;
-  1046  07B1  1492               	bsf	18,1	;volatile
+  1045                           ;iPWM.c: 28: PIR1bits.TMR2IF = 0;
+  1046  07B0  108C               	bcf	12,1	;volatile
   1047                           
-  1048                           ;iPWM.c: 25: T2CONbits.TMR2ON = 1;
-  1049  07B2  1512               	bsf	18,2	;volatile
-  1050  07B3                     l101:	
-  1051                           ;iPWM.c: 28: while(!PIR1bits.TMR2IF);
-  1052                           
-  1053  07B3  1C8C               	btfss	12,1	;volatile
-  1054  07B4  2FB3               	goto	l101
+  1048                           ;iPWM.c: 30: T2CONbits.T2CKPS1 = 1;
+  1049  07B1  1492               	bsf	18,1	;volatile
+  1050                           
+  1051                           ;iPWM.c: 31: T2CONbits.TMR2ON = 1;
+  1052  07B2  1512               	bsf	18,2	;volatile
+  1053  07B3                     l103:	
+  1054                           ;iPWM.c: 34: while(!PIR1bits.TMR2IF);
   1055                           
-  1056                           ;iPWM.c: 31: TRISC5 = 0;
-  1057  07B5  1683               	bsf	3,5	;RP0=1, select bank1
-  1058  07B6  1303               	bcf	3,6	;RP1=0, select bank1
-  1059  07B7  1287               	bcf	7,5	;volatile
-  1060  07B8  0008               	return
-  1061  07B9                     __end_of_iPWM_Config:	
-  1062                           
-  1063                           	psect	text3
-  1064  079C                     __ptext3:	
-  1065 ;; *************** function _iCpu_Config *****************
-  1066 ;; Defined at:
-  1067 ;;		line 4 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/iCpu.c"
-  1068 ;; Parameters:    Size  Location     Type
-  1069 ;;		None
-  1070 ;; Auto vars:     Size  Location     Type
-  1071 ;;		None
-  1072 ;; Return value:  Size  Location     Type
-  1073 ;;		None               void
-  1074 ;; Registers used:
-  1075 ;;		wreg, status,2, status,0
-  1076 ;; Tracked objects:
-  1077 ;;		On entry : 0/0
-  1078 ;;		On exit  : 0/0
-  1079 ;;		Unchanged: 0/0
-  1080 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
-  1081 ;;      Params:         0       0       0       0
-  1082 ;;      Locals:         0       0       0       0
-  1083 ;;      Temps:          0       0       0       0
-  1084 ;;      Totals:         0       0       0       0
-  1085 ;;Total ram usage:        0 bytes
-  1086 ;; Hardware stack levels used:    1
-  1087 ;; This function calls:
-  1088 ;;		Nothing
-  1089 ;; This function is called by:
-  1090 ;;		_main
-  1091 ;; This function uses a non-reentrant model
-  1092 ;;
-  1093                           
-  1094                           
-  1095                           ;psect for function _iCpu_Config
-  1096  079C                     _iCpu_Config:	
+  1056  07B3  1C8C               	btfss	12,1	;volatile
+  1057  07B4  2FB3               	goto	l103
+  1058                           
+  1059                           ;iPWM.c: 37: TRISC5 = 0;
+  1060  07B5  1683               	bsf	3,5	;RP0=1, select bank1
+  1061  07B6  1303               	bcf	3,6	;RP1=0, select bank1
+  1062  07B7  1287               	bcf	7,5	;volatile
+  1063  07B8  0008               	return
+  1064  07B9                     __end_of_iPWM_Config:	
+  1065                           
+  1066                           	psect	text3
+  1067  079B                     __ptext3:	
+  1068 ;; *************** function _iCpu_Config *****************
+  1069 ;; Defined at:
+  1070 ;;		line 4 in file "C:/Users/mohammed.bensalah/Documents/GitHub/Electronique2Project/Projet1-2.X/iCpu.c"
+  1071 ;; Parameters:    Size  Location     Type
+  1072 ;;		None
+  1073 ;; Auto vars:     Size  Location     Type
+  1074 ;;		None
+  1075 ;; Return value:  Size  Location     Type
+  1076 ;;		None               void
+  1077 ;; Registers used:
+  1078 ;;		wreg, status,2, status,0
+  1079 ;; Tracked objects:
+  1080 ;;		On entry : 0/0
+  1081 ;;		On exit  : 0/0
+  1082 ;;		Unchanged: 0/0
+  1083 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2
+  1084 ;;      Params:         0       0       0       0
+  1085 ;;      Locals:         0       0       0       0
+  1086 ;;      Temps:          0       0       0       0
+  1087 ;;      Totals:         0       0       0       0
+  1088 ;;Total ram usage:        0 bytes
+  1089 ;; Hardware stack levels used:    1
+  1090 ;; This function calls:
+  1091 ;;		Nothing
+  1092 ;; This function is called by:
+  1093 ;;		_main
+  1094 ;; This function uses a non-reentrant model
+  1095 ;;
+  1096                           
   1097                           
-  1098                           ;iCpu.c: 21: OSCCONbits.IRCF = 0b111;
-  1099                           
-  1100                           ;incstack = 0
-  1101                           ; Regs used in _iCpu_Config: [wreg+status,2+status,0]
-  1102  079C  3070               	movlw	112
-  1103  079D  1683               	bsf	3,5	;RP0=1, select bank1
-  1104  079E  1303               	bcf	3,6	;RP1=0, select bank1
-  1105  079F  048F               	iorwf	15,f	;volatile
-  1106                           
-  1107                           ;iCpu.c: 22: OSCCONbits.OSTS = 0;
-  1108  07A0  118F               	bcf	15,3	;volatile
+  1098                           ;psect for function _iCpu_Config
+  1099  079B                     _iCpu_Config:	
+  1100                           
+  1101                           ;iCpu.c: 21: OSCCONbits.IRCF = 0b111;
+  1102                           
+  1103                           ;incstack = 0
+  1104                           ; Regs used in _iCpu_Config: [wreg+status,2+status,0]
+  1105  079B  3070               	movlw	112
+  1106  079C  1683               	bsf	3,5	;RP0=1, select bank1
+  1107  079D  1303               	bcf	3,6	;RP1=0, select bank1
+  1108  079E  048F               	iorwf	15,f	;volatile
   1109                           
-  1110                           ;iCpu.c: 23: OSCCONbits.SCS = 0;
-  1111  07A1  100F               	bcf	15,0	;volatile
-  1112  07A2  0008               	return
-  1113  07A3                     __end_of_iCpu_Config:	
-  1114  007E                     btemp	set	126	;btemp
-  1115  007E                     wtemp	set	126
-  1116  007E                     wtemp0	set	126
-  1117  0080                     wtemp1	set	128
-  1118  0082                     wtemp2	set	130
-  1119  0084                     wtemp3	set	132
-  1120  0086                     wtemp4	set	134
-  1121  0088                     wtemp5	set	136
-  1122  007F                     wtemp6	set	127
-  1123  007E                     ttemp	set	126
-  1124  007E                     ttemp0	set	126
-  1125  0081                     ttemp1	set	129
-  1126  0084                     ttemp2	set	132
-  1127  0087                     ttemp3	set	135
-  1128  007F                     ttemp4	set	127
-  1129  007E                     ltemp	set	126
-  1130  007E                     ltemp0	set	126
-  1131  0082                     ltemp1	set	130
-  1132  0086                     ltemp2	set	134
-  1133  0080                     ltemp3	set	128
+  1110                           ;iCpu.c: 22: OSCCONbits.OSTS = 0;
+  1111  079F  118F               	bcf	15,3	;volatile
+  1112                           
+  1113                           ;iCpu.c: 23: OSCCONbits.SCS = 0;
+  1114  07A0  100F               	bcf	15,0	;volatile
+  1115  07A1  0008               	return
+  1116  07A2                     __end_of_iCpu_Config:	
+  1117  007E                     btemp	set	126	;btemp
+  1118  007E                     wtemp	set	126
+  1119  007E                     wtemp0	set	126
+  1120  0080                     wtemp1	set	128
+  1121  0082                     wtemp2	set	130
+  1122  0084                     wtemp3	set	132
+  1123  0086                     wtemp4	set	134
+  1124  0088                     wtemp5	set	136
+  1125  007F                     wtemp6	set	127
+  1126  007E                     ttemp	set	126
+  1127  007E                     ttemp0	set	126
+  1128  0081                     ttemp1	set	129
+  1129  0084                     ttemp2	set	132
+  1130  0087                     ttemp3	set	135
+  1131  007F                     ttemp4	set	127
+  1132  007E                     ltemp	set	126
+  1133  007E                     ltemp0	set	126
+  1134  0082                     ltemp1	set	130
+  1135  0086                     ltemp2	set	134
+  1136  0080                     ltemp3	set	128
 
 
 Data Sizes:
@@ -1230,9 +1233,9 @@ DATA                 0      0       0      10        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Thu Jun 04 10:28:40 2015
+Symbol Table                                                                                   Thu Jun 04 10:47:08 2015
 
-   iPWM_SetDutyCycle@ValCCP 0070                 __CFG_CP$OFF 0000                         l101 07B3  
+   iPWM_SetDutyCycle@ValCCP 0070                 __CFG_CP$OFF 0000                         l103 07B3  
                        _PR2 0092                __CFG_CPD$OFF 0000                __CFG_IESO$ON 0000  
               __CFG_FOSC$HS 0000               __CFG_FCMEN$ON 0000                 main@valUmoy 0023  
                       _main 07B9                        btemp 007E               __CFG_BOREN$ON 0000  
@@ -1249,10 +1252,10 @@ Symbol Table                                                                    
                     _CCPR1L 0015                      _TRISC5 043D                      _SSPCON 0014  
              ??_iPWM_Config 0070              __CFG_PWRTE$OFF 0000     __end_of__initialization 07FD  
             __pcstackCOMMON 0070               ??_iCpu_Config 0070         __end_of_iPWM_Config 07B9  
-                __pmaintext 07B9         __end_of_iCpu_Config 07A3                 _iPWM_Config 07A3  
+                __pmaintext 07B9         __end_of_iCpu_Config 07A2                 _iPWM_Config 07A2  
                  _ANSELbits 0091                     __ptext0 0000                     __ptext1 07D9  
-                   __ptext2 07A3                     __ptext3 079C                   _T2CONbits 0012  
-                   main@vcc 0020        end_of_initialization 07FD                 _iCpu_Config 079C  
+                   __ptext2 07A2                     __ptext3 079B                   _T2CONbits 0012  
+                   main@vcc 0020        end_of_initialization 07FD                 _iCpu_Config 079B  
                  _TRISAbits 0085                   _TRISBbits 0086                   _TRISCbits 0087  
                 main@ValCCP 0026                 _CCP1CONbits 0017         start_initialization 07FD  
          _iPWM_SetDutyCycle 07D9          ?_iPWM_SetDutyCycle 0070                   ___latbits 0001  
@@ -1260,5 +1263,5 @@ Symbol Table                                                                    
  __end_of_iPWM_SetDutyCycle 07FD                    _PIE1bits 008C                    _PIR1bits 000C  
               ?_iCpu_Config 0070                  _ADCON0bits 001F                  _ADCON1bits 009F  
                   _WPUBbits 0095  __size_of_iPWM_SetDutyCycle 0024               __size_of_main 0020  
-      __size_of_iPWM_Config 0016                    main@argc 0074                    main@argv 0076  
+      __size_of_iPWM_Config 0017                    main@argc 0074                    main@argv 0076  
                 _INTCONbits 000B                  _OSCCONbits 008F        __size_of_iCpu_Config 0007  

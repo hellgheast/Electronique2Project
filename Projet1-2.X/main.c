@@ -12,6 +12,7 @@
 #include "iCpu.h"
 #include "iPWM.h"
 #include "mPWM.h"
+#include "iAd.h"
 
 /*
  * 
@@ -24,10 +25,15 @@ int main(int argc, char** argv)
     
     iCpu_Config();
     iPWM_Config();
+    iAd_Config();
+    
    // while(1)
        // iPWM_SetDutyCycle(ValCCP);
    // mPWM_SetTension(valUmoy, vcc);
     iPWM_SetDutyCycle(512);
+    
+    //Algorithme de mesure 
+    
   
 }
 
