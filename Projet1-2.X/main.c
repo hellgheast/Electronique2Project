@@ -33,7 +33,7 @@ int main(int argc, char** argv)
     iPWM_SetDutyCycle(512);
     
     //Algorithme de mesure 
-    
+    //Test de mesure.
   
 }
 
