@@ -13,7 +13,6 @@
 #include "iPWM.h"
 #include "mPWM.h"
 
-
 /*
  * 
  */
@@ -28,5 +27,7 @@ int main(int argc, char** argv)
    // while(1)
        // iPWM_SetDutyCycle(ValCCP);
    // mPWM_SetTension(valUmoy, vcc);
+    iPWM_SetDutyCycle(512);
+  
 }
 

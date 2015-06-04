@@ -40,9 +40,6 @@ void iInterrupt_pTXIEnable()
 {
     PIE1bits.TXIE =1;
 }
-void iInterrupt_pSSPIEnable();
-void iInterrupt_pCCP1IEnable();
-void iInterrupt_pSSPIEnable();
 
 /*Récupération des flags*/
 bool iInterrupt_TMR0Flag()

@@ -1,8 +1,14 @@
+#include <pic16f914.h>
+
 #include "iPWM.h"
 
 // Configure le PWM, par défaut à 50%
 void iPWM_Config(void)
 {
+    
+    //
+    PIE1bits.TMR2IE = 1;
+    
     // Disable the Pin RC5 output drivers
         TRISC5 = 1;
         
