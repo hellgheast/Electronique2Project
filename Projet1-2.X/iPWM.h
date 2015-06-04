@@ -12,7 +12,7 @@
 #include "def.h"
 
 // Configure le PWM, par défaut à 50%
-void iPWM_Config();
+void iPWM_Config(void);
 
 // Modifie le rapport de PWM.
 // ValCCP est la valeur 10 bits à entrer

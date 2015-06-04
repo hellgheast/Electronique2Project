@@ -3100,7 +3100,7 @@ typedef unsigned long UInt32;
 typedef signed long SInt32;
 
 # 15 "iPWM.h"
-void iPWM_Config();
+void iPWM_Config(void);
 
 
 
@@ -3110,10 +3110,25 @@ void iPWM_SetDutyCycle(int ValCCP);
 # 14 "mPWM.h"
 void mPWM_SetRation(int Procent);
 
-# 7 "mPWM.c"
-void mPWM_SetRation(int Procent){
 
-int ValCCP = (Procent*1024)/100;
-iPWM_SetDutyCycle(ValCCP);
+
+
+void mPWM_SetTension(float u_moy, float vcc);
+
+# 9 "mPWM.c"
+void mPWM_SetRatio(int procent){
+
+int valCCP = (procent*1024)/100;
+iPWM_SetDutyCycle(valCCP);
+
+}
+
+
+
+
+void mPWM_SetTension(float u_moy, float vcc){
+
+int procent = (int)(u_moy/vcc)*100;
+mPWM_SetRatio(procent);
 
 }

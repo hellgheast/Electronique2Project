@@ -10,13 +10,23 @@
 #include <pic16f914.h>
 #include "def.h"
 #include "iCpu.h"
+#include "iPWM.h"
+#include "mPWM.h"
+
 
 /*
  * 
  */
 int main(int argc, char** argv)
 {
+    float vcc = 5;
+    float valUmoy = 4.8;
+    int ValCCP = 204;
+    
     iCpu_Config();
-  
+    iPWM_Config();
+   // while(1)
+       // iPWM_SetDutyCycle(ValCCP);
+   // mPWM_SetTension(valUmoy, vcc);
 }
 

@@ -14,5 +14,9 @@
 void mPWM_SetRation(int Procent);
 
 
+// Modifie la tension moyenne
+// u_moy est la tension désirée (à une décimale maximum)
+void mPWM_SetTension(float u_moy, float vcc);
+
 #endif	/* MPWM_H */
 

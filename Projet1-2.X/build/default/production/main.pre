@@ -3242,10 +3242,33 @@ typedef signed long SInt32;
 # 15 "iCpu.h"
 void iCpu_Config(void);
 
-# 17 "main.c"
+# 15 "iPWM.h"
+void iPWM_Config(void);
+
+
+
+
+void iPWM_SetDutyCycle(int ValCCP);
+
+# 14 "mPWM.h"
+void mPWM_SetRation(int Procent);
+
+
+
+
+void mPWM_SetTension(float u_moy, float vcc);
+
+# 20 "main.c"
 int main(int argc, char** argv)
 {
+float vcc = 5;
+float valUmoy = 4.8;
+int ValCCP = 204;
+
 iCpu_Config();
+iPWM_Config();
+
+
 
 }
 

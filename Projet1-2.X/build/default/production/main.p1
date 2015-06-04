@@ -2,6 +2,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "15 iCpu.h
 [v _iCpu_Config `(v ~T0 @X0 0 ef ]
+"15 iPWM.h
+[v _iPWM_Config `(v ~T0 @X0 0 ef ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -2350,22 +2352,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;def.h: 27: typedef unsigned long UInt32;
 [; ;def.h: 28: typedef signed long SInt32;
 [; ;iCpu.h: 15: void iCpu_Config(void);
-"17 main.c
+[; ;iPWM.h: 15: void iPWM_Config(void);
+[; ;iPWM.h: 20: void iPWM_SetDutyCycle(int ValCCP);
+[; ;mPWM.h: 14: void mPWM_SetRation(int Procent);
+[; ;mPWM.h: 19: void mPWM_SetTension(float u_moy, float vcc);
+"20 main.c
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
-"18
+"21
 {
-[; ;main.c: 17: int main(int argc, char** argv)
-[; ;main.c: 18: {
+[; ;main.c: 20: int main(int argc, char** argv)
+[; ;main.c: 21: {
 [e :U _main ]
-"17
+"20
 [v _argc `i ~T0 @X0 1 r1 ]
 [v _argv `**uc ~T0 @X0 1 r2 ]
-"18
-[f ]
-[; ;main.c: 19: iCpu_Config();
-"19
-[e ( _iCpu_Config ..  ]
-[; ;main.c: 21: }
 "21
+[f ]
+"22
+[v _vcc `f ~T0 @X0 1 a ]
+[; ;main.c: 22: float vcc = 5;
+[e = _vcc -> -> 5 `i `f ]
+"23
+[v _valUmoy `f ~T0 @X0 1 a ]
+[; ;main.c: 23: float valUmoy = 4.8;
+[e = _valUmoy -> .4.8 `f ]
+"24
+[v _ValCCP `i ~T0 @X0 1 a ]
+[; ;main.c: 24: int ValCCP = 204;
+[e = _ValCCP -> 204 `i ]
+[; ;main.c: 26: iCpu_Config();
+"26
+[e ( _iCpu_Config ..  ]
+[; ;main.c: 27: iPWM_Config();
+"27
+[e ( _iPWM_Config ..  ]
+[; ;main.c: 31: }
+"31
 [e :UE 214 ]
 }

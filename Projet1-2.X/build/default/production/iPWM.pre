@@ -3100,7 +3100,7 @@ typedef unsigned long UInt32;
 typedef signed long SInt32;
 
 # 15 "iPWM.h"
-void iPWM_Config();
+void iPWM_Config(void);
 
 
 
@@ -3108,28 +3108,35 @@ void iPWM_Config();
 void iPWM_SetDutyCycle(int ValCCP);
 
 # 4 "iPWM.c"
-void iPWM_Config()
+void iPWM_Config(void)
 {
 
-PR2 = 0xFF;
+TRISC5 = 1;
 
 
-CCPR1L = 128;
-
-CCP1CONbits.CCP1X = 0;
-CCP1CONbits.CCP1Y = 0;
-
-
-TRISC5 = 0;
-
-
-T2CONbits.TOUTPS = 0;
-T2CONbits.TMR2ON = 1;
-T2CONbits.T2CKPS1 = 1;
+PR2 = 0x65;
 
 
 CCP1CONbits.CCP1M3 = 1;
 CCP1CONbits.CCP1M2 = 1;
+
+
+CCPR1L = 128;
+CCP1CONbits.CCP1X = 0;
+CCP1CONbits.CCP1Y = 0;
+
+
+PIR1bits.TMR2IF = 0;
+
+T2CONbits.T2CKPS1 = 1;
+T2CONbits.TMR2ON = 1;
+
+
+while(!PIR1bits.TMR2IF);
+
+
+TRISC5 = 0;
+
 }
 
 
@@ -3137,8 +3144,11 @@ CCP1CONbits.CCP1M2 = 1;
 
 void iPWM_SetDutyCycle(int ValCCP){
 
+
 CCPR1L = (ValCCP >> 2) & 0xFF;
+
 CCP1CONbits.CCP1M3 = ValCCP & 0x02;
 CCP1CONbits.CCP1M2 = ValCCP & 0x01;
+
 
 }

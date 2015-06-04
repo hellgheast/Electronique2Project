@@ -1,8 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1995 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f914.h
+"6971 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f914.h
+[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"1995
 [v _PR2 `Vuc ~T0 @X0 0 e@146 ]
-"903
-[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
 "921
 [s S34 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S34 . CCP1M CCP1Y CCP1X ]
@@ -14,8 +14,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S33 . . . ]
 "933
 [v _CCP1CONbits `VS33 ~T0 @X0 0 e@23 ]
-"6971
-[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"903
+[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
+"530
+[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF EEIF ]
+"529
+[u S19 `S20 1 ]
+[n S19 . . ]
+"541
+[v _PIR1bits `VS19 ~T0 @X0 0 e@12 ]
 "758
 [s S28 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
 [n S28 . T2CKPS TMR2ON TOUTPS ]
@@ -2291,67 +2299,77 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;def.h: 26: typedef signed int SInt16;
 [; ;def.h: 27: typedef unsigned long UInt32;
 [; ;def.h: 28: typedef signed long SInt32;
-[; ;iPWM.h: 15: void iPWM_Config();
+[; ;iPWM.h: 15: void iPWM_Config(void);
 [; ;iPWM.h: 20: void iPWM_SetDutyCycle(int ValCCP);
 "4 iPWM.c
 [v _iPWM_Config `(v ~T0 @X0 1 ef ]
 "5
 {
-[; ;iPWM.c: 4: void iPWM_Config()
+[; ;iPWM.c: 4: void iPWM_Config(void)
 [; ;iPWM.c: 5: {
 [e :U _iPWM_Config ]
 [f ]
-[; ;iPWM.c: 7: PR2 = 0xFF;
+[; ;iPWM.c: 7: TRISC5 = 1;
 "7
-[e = _PR2 -> -> 255 `i `uc ]
-[; ;iPWM.c: 10: CCPR1L = 128;
+[e = _TRISC5 -> -> 1 `i `b ]
+[; ;iPWM.c: 10: PR2 = 0x65;
 "10
-[e = _CCPR1L -> -> 128 `i `uc ]
-[; ;iPWM.c: 12: CCP1CONbits.CCP1X = 0;
-"12
-[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
-[; ;iPWM.c: 13: CCP1CONbits.CCP1Y = 0;
+[e = _PR2 -> -> 101 `i `uc ]
+[; ;iPWM.c: 13: CCP1CONbits.CCP1M3 = 1;
 "13
-[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
-[; ;iPWM.c: 16: TRISC5 = 0;
-"16
-[e = _TRISC5 -> -> 0 `i `b ]
-[; ;iPWM.c: 19: T2CONbits.TOUTPS = 0;
-"19
-[e = . . _T2CONbits 0 2 -> -> 0 `i `uc ]
-[; ;iPWM.c: 20: T2CONbits.TMR2ON = 1;
-"20
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;iPWM.c: 21: T2CONbits.T2CKPS1 = 1;
-"21
-[e = . . _T2CONbits 1 1 -> -> 1 `i `uc ]
-[; ;iPWM.c: 24: CCP1CONbits.CCP1M3 = 1;
-"24
 [e = . . _CCP1CONbits 1 3 -> -> 1 `i `uc ]
-[; ;iPWM.c: 25: CCP1CONbits.CCP1M2 = 1;
-"25
+[; ;iPWM.c: 14: CCP1CONbits.CCP1M2 = 1;
+"14
 [e = . . _CCP1CONbits 1 2 -> -> 1 `i `uc ]
-[; ;iPWM.c: 26: }
-"26
+[; ;iPWM.c: 17: CCPR1L = 128;
+"17
+[e = _CCPR1L -> -> 128 `i `uc ]
+[; ;iPWM.c: 18: CCP1CONbits.CCP1X = 0;
+"18
+[e = . . _CCP1CONbits 0 2 -> -> 0 `i `uc ]
+[; ;iPWM.c: 19: CCP1CONbits.CCP1Y = 0;
+"19
+[e = . . _CCP1CONbits 0 1 -> -> 0 `i `uc ]
+[; ;iPWM.c: 22: PIR1bits.TMR2IF = 0;
+"22
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;iPWM.c: 24: T2CONbits.T2CKPS1 = 1;
+"24
+[e = . . _T2CONbits 1 1 -> -> 1 `i `uc ]
+[; ;iPWM.c: 25: T2CONbits.TMR2ON = 1;
+"25
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;iPWM.c: 28: while(!PIR1bits.TMR2IF);
+"28
+[e $U 210  ]
+[e :U 211 ]
+[e :U 210 ]
+[e $ ! != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 211  ]
+[e :U 212 ]
+[; ;iPWM.c: 31: TRISC5 = 0;
+"31
+[e = _TRISC5 -> -> 0 `i `b ]
+[; ;iPWM.c: 33: }
+"33
 [e :UE 209 ]
 }
-"31
+"38
 [v _iPWM_SetDutyCycle `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;iPWM.c: 31: void iPWM_SetDutyCycle(int ValCCP){
+[; ;iPWM.c: 38: void iPWM_SetDutyCycle(int ValCCP){
 [e :U _iPWM_SetDutyCycle ]
 [v _ValCCP `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;iPWM.c: 33: CCPR1L = (ValCCP >> 2) & 0xFF;
-"33
+[; ;iPWM.c: 41: CCPR1L = (ValCCP >> 2) & 0xFF;
+"41
 [e = _CCPR1L -> & >> _ValCCP -> 2 `i -> 255 `i `uc ]
-[; ;iPWM.c: 34: CCP1CONbits.CCP1M3 = ValCCP & 0x02;
-"34
+[; ;iPWM.c: 43: CCP1CONbits.CCP1M3 = ValCCP & 0x02;
+"43
 [e = . . _CCP1CONbits 1 3 -> & _ValCCP -> 2 `i `uc ]
-[; ;iPWM.c: 35: CCP1CONbits.CCP1M2 = ValCCP & 0x01;
-"35
+[; ;iPWM.c: 44: CCP1CONbits.CCP1M2 = ValCCP & 0x01;
+"44
 [e = . . _CCP1CONbits 1 2 -> & _ValCCP -> 1 `i `uc ]
-[; ;iPWM.c: 37: }
-"37
-[e :UE 210 ]
+[; ;iPWM.c: 47: }
+"47
+[e :UE 213 ]
 }

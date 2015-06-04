@@ -2265,24 +2265,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;def.h: 26: typedef signed int SInt16;
 [; ;def.h: 27: typedef unsigned long UInt32;
 [; ;def.h: 28: typedef signed long SInt32;
-[; ;iPWM.h: 15: void iPWM_Config();
+[; ;iPWM.h: 15: void iPWM_Config(void);
 [; ;iPWM.h: 20: void iPWM_SetDutyCycle(int ValCCP);
 [; ;mPWM.h: 14: void mPWM_SetRation(int Procent);
-"7 mPWM.c
-[v _mPWM_SetRation `(v ~T0 @X0 1 ef1`i ]
+[; ;mPWM.h: 19: void mPWM_SetTension(float u_moy, float vcc);
+"9 mPWM.c
+[v _mPWM_SetRatio `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;mPWM.c: 7: void mPWM_SetRation(int Procent){
-[e :U _mPWM_SetRation ]
-[v _Procent `i ~T0 @X0 1 r1 ]
+[; ;mPWM.c: 9: void mPWM_SetRatio(int procent){
+[e :U _mPWM_SetRatio ]
+[v _procent `i ~T0 @X0 1 r1 ]
 [f ]
-"9
-[v _ValCCP `i ~T0 @X0 1 a ]
-[; ;mPWM.c: 9: int ValCCP = (Procent*1024)/100;
-[e = _ValCCP / * _Procent -> 1024 `i -> 100 `i ]
-[; ;mPWM.c: 10: iPWM_SetDutyCycle(ValCCP);
-"10
-[e ( _iPWM_SetDutyCycle (1 _ValCCP ]
-[; ;mPWM.c: 12: }
+"11
+[v _valCCP `i ~T0 @X0 1 a ]
+[; ;mPWM.c: 11: int valCCP = (procent*1024)/100;
+[e = _valCCP / * _procent -> 1024 `i -> 100 `i ]
+[; ;mPWM.c: 12: iPWM_SetDutyCycle(valCCP);
 "12
+[e ( _iPWM_SetDutyCycle (1 _valCCP ]
+[; ;mPWM.c: 14: }
+"14
 [e :UE 209 ]
+}
+"19
+[v _mPWM_SetTension `(v ~T0 @X0 1 ef2`f`f ]
+{
+[; ;mPWM.c: 19: void mPWM_SetTension(float u_moy, float vcc){
+[e :U _mPWM_SetTension ]
+[v _u_moy `f ~T0 @X0 1 r1 ]
+[v _vcc `f ~T0 @X0 1 r2 ]
+[f ]
+"21
+[v _procent `i ~T0 @X0 1 a ]
+[; ;mPWM.c: 21: int procent = (int)(u_moy/vcc)*100;
+[e = _procent * -> / _u_moy _vcc `i -> 100 `i ]
+[; ;mPWM.c: 22: mPWM_SetRatio(procent);
+"22
+[e ( _mPWM_SetRatio (1 _procent ]
+[; ;mPWM.c: 24: }
+"24
+[e :UE 210 ]
 }
